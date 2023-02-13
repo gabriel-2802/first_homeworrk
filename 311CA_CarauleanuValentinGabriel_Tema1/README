@@ -1,0 +1,145 @@
+Carauleanu Valentin Gabriel 311CA
+
+Problema 1:
+
+	Initial an construit functia transf_b8_b10 cu rolul de
+	a transforma elementele vectorului din baza 8 in baza 10
+
+	Avand nevoie de al doilea maxim, am initializat
+	variabillele _max2 care vor retine al doilea maxim si
+	variabilele _max1, care vor retine primul maxim. 
+
+	Lucrand cu numere prea mari pentru vectori, programul
+	va citi cate 2 coordonate ale vectorilor de n ori.  
+
+	Dupa citirea celor 2 coordonate, transformam elementele
+	citite din baza 8 in baza 10 si adunam produsul acestora la 
+	variabila ps, ce memoreaza produsul scalar
+
+	Ulterior avem 2 structuri conditionale, care asigura ca
+	variabilele _max2 retin maximul al doilea din fiecare vector. 
+
+	Adunam patratul fiecarei coordoanata la norma vectorului, facand 
+	conversia catre tipul de date double.
+ 
+	La final, aplicam functia sqrt normelor vectorilor si afisam
+	rezultatele. 
+
+
+Problems 2 
+
+	Initial am declarat un vector de frecventa initializat cu toate
+	elementele 0si un vector cu toate literele mici ale alfabetului
+
+	Bucla while(1) va rula pana cand se va citi o litera mare diferita
+	de 'Q', 'T', 'E', moment in care este rulata instructuiunea 'break;
+
+	Daca este citita o litera mica, apelam functia frecventa_lit, care
+	parurge secvential vectorul de litere in vederea incrementarii
+	pozitiei literei in vectorul de frecventa.
+
+	Daca functia conditie_lit_distincte (daca vectorul de frecventa are 2
+	elemente nenule) este 1, ultima alerta a fost in urma cu 5 litere mic
+	si sunt cel putin 5 litere mici citite vom apela functia alert
+	intr-o structura conditionala
+
+	Functia alerta verifica prin intermediul vectorului de frecventa
+	daca o litera este dominanta si, in caz pozitiv, o printeaza folosind
+	pozitia sa in vectorul de litere. Mai mult, functia apeleaza
+	subprogramul cmmdc(foloseste algoritmul lui euclid prin scaderi
+	repetate) pentru a afisa fractia ireductibila ceruta si returneaza 1
+	pentru a transforma var last_alert, din structura conditionala,
+	in 0. Daca alerta nu se activeaza, functia returneaza 0, iar var
+	last_alert ramane neschimbata.
+
+	Daca litera citita este 'Q' , intram intr-o bucla while(1), care
+	este intrerupta la citirea unei litere mica. In acest mod, ne
+	asiguram ca nu primim caracterul '\n' sau ' '. Ulterior
+	apelam functia nr_aparitii care afiseaza numarul de apartii ale
+	literei nou citite prin cautarea secventiala a acesteia in
+	vectorul de litere si printarea elementului din vectorul
+	de frecventa.
+
+	Daca litera citita este T, citim o var de tip int si apelam
+	functia primele_k .Acesta copiaza vectorul de frecventa intr-un
+	vector auxiliar pentru a putea modifica elementele acestuia fara
+	a pierde informatia stocata in vectorul de frecventa.
+	Pentru a evita un algoritm de sortare de complexitate n^2 
+	functia cauta primul maxim din vectorul auxiliar. Este printata
+	litera corespunzatoare maximului folosind pozitia sa in vectorul
+	de litere, iar in vectorul auxiliar maximul este inlocuit cu -1.
+	Repet acest algoritm de k-ori si reduc astfel complexitatea
+	la k * n. 
+
+	Daca citesc litera 'E' , este citia o variabila de tip char noua si
+	este apelata functia stergere_aparitii, care cauta litera
+	nou citita in  vectorul de litere si ii sterge numarul de
+	aparitii in vectorul de frecventa
+
+
+Problema 3
+
+	Initial programul citeste tabla de joc prin
+	intermediul matricei sah. 
+
+	In interiorul structurii while, care ruleaza cat
+	timp elementul din matricea sah de coord x si y este
+	nenul, memorez valorile lui x si
+	y in 2 variabile auxiliare. 
+
+	Daca suma coordonatelor patratului este para, patratul
+	este alb, deci trebuie modificata coloana. In caz contrar,
+	patratul este negru deci linia va fi modificata.
+
+	Functiile modif_white_square si modif_black_square functioneaza
+	utilizand acelasi algoritm, care prin operatiile modulo se asigura
+	ca noua coloana/linie ramane in interiorul tablei de sah
+
+	Distanta este ulterior marita cu valorea absoluta a elementului
+	din matrice la coordonatele de unde am plecat(pastrate de var aux1
+	si aux2) si tranformam elementul de unde am plecat in 0 pentru
+	a opri programul daca reajungem la acesta.
+
+	La final printam distanta si apelam functia final_pos.
+
+Problema 4
+
+	Programul citeate tabla de sudoku si nr de operatii in var M
+	Este utilzata o structura repetitiva care citeste M numere si
+	in functia de valoarea acestora activeaza un case al switch-ului. 
+
+	In fiecare dintre functiile operatie_1,2,3,4,6 este declarat un
+	vector de frecventa, iar toate elementele acestuia sunt initializate
+	cu 0 prin functia set_up_vector.  
+
+	Functiile operatie_1,2,3 apeleaza functiile verificare_linie,
+	verificare_coloana respectiv vf_careu, care parcurg secvential linia,
+	coloana si careul trimis ca parametru, si foloseste un vector de
+	frecventa pentru a memora ce elemente nenule sunt intalnite in jocul
+	de sudoku.Ulterior este apelata functia verificare_poztii_libere si
+	functia afisare.
+
+	Motivul din spatele alegerii utilizarii unui numar mare de functie este
+	necesitatea de a refolosi acleasi linii de cod in mutiple functii.
+
+	Functiile prima_coord_careu si a_doua_coord_careu determina coordoanetele
+	unui careu dat prin parcurgerea secventiala a fiecarui careu prin
+	intermediul coordonatelor initiale ale acestora.
+
+	Functia operatie_5 va inlocui un element nul din matricea sudoku cu
+	o valoare c data.
+
+	Functia operatie_6 verifica initial daca jocul este invalid. Astfel,
+	va parcurge fiecare linie, fiecare coloana si fiecare careu, apeland
+	functiile verificare_linie, verificare_coloana respectiv vf_careu.
+	La fiecare linie/coloana/careu vectorul de frecventa este verifcat, apoi
+	reinitializat.Daca un element din vectorul de frecventa este mai mare
+	decat 1, jocul are o dublura, deci printam 1 si iesim din functie.
+	De asemenea,in cazul in care jocul este valid, variabila celula_libera
+	va memora daca este un element nul in matrice.
+
+	Daca nu am iesit din functie si var celula_libera este 1, jocul mai
+	poate fi continuat, deci printam 0 si iesim din functie. 
+
+	Daca ajungem la finalul functiei, jocul este castigat, deoarece este
+	valid si nu are spatii libere.
